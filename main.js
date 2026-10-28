@@ -142,6 +142,20 @@
   }
 
   // ---------- Tabs ----------
+  // Skills I built: side-by-side tabs on desktop, accordion on phones (panel opens under its skill)
+  const phoneSkills = matchMedia("(max-width: 860px)");
+  const placeSkills = () => {
+    const wrap = $(".skills");
+    if (!wrap) return;
+    const home = $(".skills__panels", wrap);
+    $$('[role="tab"]', wrap).forEach((t) => {
+      const p = document.getElementById(t.getAttribute("aria-controls"));
+      if (phoneSkills.matches) t.after(p); else home.appendChild(p);
+    });
+  };
+  placeSkills();
+  phoneSkills.addEventListener("change", placeSkills);
+
   $$("[data-tabs]").forEach((wrap) => {
     const tabs = $$('[role="tab"]', wrap);
     const show = (t, focus) => {
@@ -152,6 +166,11 @@
         document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
       });
       if (focus) t.focus();
+      // Phone accordion: keep the tapped skill in view once the one above closes
+      if (wrap.classList.contains("skills") && phoneSkills.matches) {
+        const top = t.getBoundingClientRect().top;
+        if (top < 90 || top > innerHeight * 0.3) scrollTo({ top: scrollY + top - 90, behavior: reduceMotion ? "auto" : "smooth" });
+      }
     };
     tabs.forEach((t, i) => {
       t.addEventListener("click", () => show(t));

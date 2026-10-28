@@ -362,12 +362,18 @@ video:-webkit-full-screen { object-fit: contain; }
 .skills__panel h4 { position: relative; font-size: clamp(26px, 3vw, 34px); margin-bottom: 14px; }
 .skills__panel p { position: relative; color: rgba(243, 246, 251, 0.82); font-size: 16.5px; line-height: 1.65; max-width: 62ch; }
 .skills__big { position: absolute; right: 18px; top: -14px; font-family: var(--display); font-size: 150px; line-height: 1; color: var(--mint); opacity: 0.22; pointer-events: none; }
+.skills__intro { margin-top: 14px; color: var(--muted); font-size: 16.5px; }
 @media (max-width: 860px) {
   .skills { grid-template-columns: 1fr; }
-  .tabs__list.skills__list { flex-direction: row; flex-wrap: wrap; }
-  .skills__list button { flex: 1 1 auto; padding: 9px 12px; font-size: 13.5px; gap: 8px; }
-  .skills__panel { padding: 24px 20px; }
-  .skills__big { font-size: 110px; }
+  .skills__panels { display: none; }
+  .tabs__list.skills__list { flex-direction: column; flex-wrap: nowrap; gap: 6px; }
+  .skills__list button { width: 100%; padding: 14px 14px; font-size: 15px; gap: 10px; }
+  .skills__list button::after { content: "+"; margin-left: auto; font: 500 22px/1 var(--body); opacity: 0.7; }
+  .skills__list button[aria-selected="true"]::after { content: "\2212"; }
+  .skills__panel { padding: 22px 18px 24px; margin: 2px 0 8px; border-radius: 14px; }
+  .skills__panel h4 { display: none; }
+  .skills__big { display: none; }
+  .skills__panel p { font-size: 15.5px; line-height: 1.6; }
 }
 
 /* Static labels: no tap-to-search or text selection, so they never read as links */
