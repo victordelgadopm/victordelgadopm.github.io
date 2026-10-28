@@ -64,18 +64,6 @@
   video.addEventListener("play", () => screen.classList.add("is-playing"));
   video.addEventListener("ended", () => screen.classList.remove("is-playing"));
 
-  // Copy email
-  const toast = $(".toast");
-  const showToast = (msg) => {
-    toast.textContent = msg;
-    toast.classList.add("is-on");
-    clearTimeout(showToast.t);
-    showToast.t = setTimeout(() => toast.classList.remove("is-on"), 2200);
-  };
-  $("#copyEmail").addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText("vtdelg@gmail.com"); showToast("Email copied. Talk soon!"); }
-    catch { showToast("vtdelg@gmail.com"); }
-  });
 
   // ---------- RVToad marketplace ----------
   {
