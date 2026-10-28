@@ -97,9 +97,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @keyframes drift { to { transform: translate(-50px, 40px) scale(1.12); } }
 
 .hero__inner { position: relative; width: 100%; max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 999px; background: var(--surface); box-shadow: var(--shadow); margin-bottom: 22px; }
-.dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); animation: live 2s infinite; display: inline-block; flex: none; }
-@keyframes live { 0% { box-shadow: 0 0 0 0 rgba(53, 224, 161, 0.6); } 70% { box-shadow: 0 0 0 8px rgba(53, 224, 161, 0); } 100% { box-shadow: 0 0 0 0 rgba(53, 224, 161, 0); } }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 999px; background: rgba(53, 224, 161, 0.08); border: 1px solid rgba(53, 224, 161, 0.35); box-shadow: var(--shadow); margin-bottom: 22px; }
+.dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); animation: live 2.4s ease-out infinite; display: inline-block; flex: none; }
+@keyframes live { 0% { box-shadow: 0 0 0 0 rgba(53, 224, 161, 0.6); } 70% { box-shadow: 0 0 0 10px rgba(53, 224, 161, 0); } 100% { box-shadow: 0 0 0 0 rgba(53, 224, 161, 0); } }
 .hero__name { font-size: clamp(64px, 10.5vw, 132px); line-height: 0.92; letter-spacing: -0.04em; font-weight: 800; }
 .hero__name .line { display: block; overflow: hidden; padding-bottom: 0.1em; }
 .hero__name .word { display: inline-block; }
@@ -135,7 +135,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero { min-height: calc(100svh - 104px); padding: clamp(78px, 11vh, 110px) var(--gutter) clamp(16px, 3vh, 40px); }
   .hero__name { font-size: clamp(50px, min(10.5vw, 11.5vh), 132px); }
   .hero__lede { font-size: clamp(17px, min(1.7vw, 2.8vh), 22px); }
-  .eyebrow { margin-bottom: 0; }
+  .eyebrow { margin-bottom: clamp(12px, 2.2vh, 20px); }
   .hero__title { margin-top: 6px; }
   .pills { margin: clamp(10px, 1.8vh, 18px) 0 clamp(12px, 2vh, 20px); }
   .hero__rotator { margin-top: 8px; }
@@ -158,6 +158,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .js .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: calc(var(--d, 0) * 0.1s); }
 .js .reveal.is-in { opacity: 1; transform: none; }
+/* Playbook: each step's bar fills in order, like moving through the process */
+.step { overflow: hidden; }
+.step::before { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--mint), var(--amber)); transform: scaleX(0); transform-origin: left; transition: transform 0.7s var(--ease); transition-delay: calc(0.5s + var(--d, 0) * 0.35s); }
+.step.is-in::before { transform: scaleX(1); }
+/* Chips cascade in after their card or list appears */
+.js .card li, .js .finale .pills li { opacity: 0; transform: translateY(10px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+.js .is-in .card li, .js .card.is-in li, .js .finale__inner.is-in .pills li { opacity: 1; transform: none; }
+.card li:nth-child(1), .finale .pills li:nth-child(1) { transition-delay: 0.31s; }
+.card li:nth-child(2), .finale .pills li:nth-child(2) { transition-delay: 0.37s; }
+.card li:nth-child(3), .finale .pills li:nth-child(3) { transition-delay: 0.43s; }
+.card li:nth-child(4), .finale .pills li:nth-child(4) { transition-delay: 0.49s; }
+.card li:nth-child(5), .finale .pills li:nth-child(5) { transition-delay: 0.55s; }
+.card li:nth-child(6), .finale .pills li:nth-child(6) { transition-delay: 0.61s; }
+.card li:nth-child(7), .finale .pills li:nth-child(7) { transition-delay: 0.67s; }
+.card li:nth-child(8), .finale .pills li:nth-child(8) { transition-delay: 0.73s; }
+.card li:nth-child(9), .finale .pills li:nth-child(9) { transition-delay: 0.79s; }
+.card li:nth-child(10), .finale .pills li:nth-child(10) { transition-delay: 0.85s; }
 
 /* ---------- Video ---------- */
 .video { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
@@ -526,6 +543,8 @@ video:-webkit-full-screen { object-fit: contain; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .js .card li, .js .finale .pills li { opacity: 1; transform: none; }
+  .step::before { transform: scaleX(1); transition: none; }
   .js .room .item { opacity: 1; }
   .marquee__track { animation: none; }
 }
