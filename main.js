@@ -31,6 +31,18 @@
 
   $$(".reveal").forEach((el) => whenVisible(el, (t) => t.classList.add("is-in"), 0.12));
 
+  // Phone menu
+  const menuBtn = $(".nav__menu");
+  const navLinks = $("#navLinks");
+  const setMenu = (open) => {
+    navLinks.classList.toggle("is-open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+  };
+  menuBtn.addEventListener("click", (e) => { e.stopPropagation(); setMenu(!navLinks.classList.contains("is-open")); });
+  navLinks.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("click", (e) => { if (!navLinks.contains(e.target)) setMenu(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+
   // Active nav link
   const links = $$(".nav__links a");
   const sectionIO = new IntersectionObserver((entries) => entries.forEach((e) => {
