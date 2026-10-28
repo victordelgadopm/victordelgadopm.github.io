@@ -56,7 +56,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%;
   background: var(--mint); color: var(--on-accent); transition: transform 0.4s var(--ease);
 }
-.nav__logo:hover { transform: rotate(-12deg) scale(1.06); }
+@media (hover: hover) { .nav__logo:hover { transform: rotate(-12deg) scale(1.06); } }
+.nav__menu { display: none; align-items: center; gap: 8px; margin-left: auto; padding: 10px 14px; border-radius: 999px; border: 0; background: transparent; color: var(--text); font: 600 14px/1 inherit; font-family: inherit; box-shadow: inset 0 0 0 1.5px rgba(243, 246, 251, 0.35); cursor: pointer; }
+.nav__menu svg { width: 18px; height: 18px; }
+.nav__menu[aria-expanded="true"] { box-shadow: inset 0 0 0 1.5px var(--mint); color: var(--mint); }
 .nav__links { display: flex; align-items: center; gap: 28px; position: absolute; left: 50%; transform: translateX(-50%); }
 .nav__links a { white-space: nowrap; text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; position: relative; transition: color 0.2s; }
 .nav__links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--mint); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease); }
@@ -435,6 +438,13 @@ video:-webkit-full-screen { object-fit: contain; }
 }
 @media (max-width: 860px) {
   .nav__links { display: none; }
+  .nav { justify-content: flex-start; gap: 10px; }
+  .nav__menu { display: inline-flex; }
+  .nav__links.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; position: absolute; top: calc(100% + 8px); left: var(--gutter); right: var(--gutter); transform: none; padding: 8px; border-radius: 20px; background: var(--surface-2); box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7); border: 1px solid var(--line); }
+  .nav__links.is-open a { padding: 14px 16px; border-radius: 12px; font-size: 17px; color: var(--text); }
+  .nav__links.is-open a::after { display: none; }
+  .nav__links.is-open a.is-active { background: rgba(53, 224, 161, 0.12); color: var(--mint); }
+  .nav__links.is-open a.nav__pill { display: none; }
   .nav__cta { display: inline-flex; }
   .hero { padding-top: 96px; align-items: flex-start; }
   .hero__inner { grid-template-columns: 1fr; }

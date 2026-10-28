@@ -21,20 +21,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261028d">
+  <link rel="stylesheet" href="styles.css?v=20261028e">
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div>
 
   <header class="nav">
     <a href="#top" class="nav__logo" aria-label="Back to top">VD</a>
-    <nav class="nav__links" aria-label="Sections">
+    <nav class="nav__links" id="navLinks" aria-label="Sections">
       <a href="#video">Video</a>
       <a href="#approach">Approach</a>
       <a href="#experience">Experience</a>
       <a href="#toolkit">Toolkit</a>
       <a href="#contact" class="nav__pill">Let's connect</a>
     </nav>
+    <button type="button" class="nav__menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Menu
+    </button>
     <a href="#contact" class="btn btn--small magnetic nav__cta">Let's connect</a>
   </header>
 
@@ -578,6 +582,6 @@
     <a href="#top">Back to top ↑</a>
   </footer>
 
-  <script src="main.js?v=20261028d"></script>
+  <script src="main.js?v=20261028e"></script>
 </body>
 </html>
