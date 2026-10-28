@@ -447,6 +447,30 @@ video:-webkit-full-screen { object-fit: contain; }
   .footer { flex-direction: column; align-items: center; }
 }
 
+/* Phone hero: everything that matters on the first screen */
+@media (max-width: 560px) {
+  .hero { min-height: auto; padding: 84px var(--gutter) 26px; }
+  .hero__inner { display: block; position: relative; }
+  .hero__photo { position: absolute; top: 0; right: 0; z-index: 1; }
+  .photo { width: 31vw; max-width: 132px; }
+  .photo img { border-radius: 999px 999px 18px 18px; }
+  .eyebrow { font-size: 12.5px; padding: 6px 11px; margin-bottom: 14px; max-width: calc(100% - 31vw - 10px); }
+  .hero__name { font-size: clamp(50px, 14.5vw, 64px); }
+  .hero__title { font-size: 18px; margin-top: 6px; }
+  .pills { gap: 7px; margin: 12px 0 14px; }
+  .pill { padding: 6px 12px; font-size: 13.5px; }
+  .hero__lede { font-size: 17px; }
+  .hero__rotator { font-size: 15px; margin-top: 8px; }
+  .hero__cta { margin-top: 18px; flex-wrap: nowrap; gap: 10px; }
+  .hero__cta .btn { padding: 13px 12px; font-size: 14.5px; gap: 7px; }
+  .hero__cta .btn svg { width: 15px; height: 15px; }
+  .marquee { padding: 13px 0; margin: 4px 0; }
+  .marquee span { font-size: 19px; }
+}
+@media (max-width: 380px) {
+  .hero__cta .btn { padding: 12px 9px; font-size: 13.5px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .js .reveal { opacity: 1; transform: none; }
