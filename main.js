@@ -13,6 +13,7 @@
     const max = document.documentElement.scrollHeight - innerHeight;
     progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
     nav.classList.toggle("is-scrolled", scrollY > 20);
+    $(".totop").classList.toggle("is-on", scrollY > innerHeight * 0.8);
   };
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
