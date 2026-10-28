@@ -74,6 +74,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn--ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1.5px var(--text); }
 .btn--ghost:hover { background: var(--mint); color: var(--on-accent); box-shadow: inset 0 0 0 1.5px var(--text); }
 .btn--small { padding: 11px 18px; font-size: 14px; }
+.nav__cta { visibility: hidden; }
 .btn--light { background: var(--text); color: var(--on-accent); }
 .btn--light:hover { background: var(--amber); color: var(--on-accent); box-shadow: 0 12px 28px -10px rgba(255, 184, 77, 0.6); }
 .btn--ghost-light { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1.5px rgba(243, 246, 251, 0.5); }
@@ -413,8 +414,6 @@ video:-webkit-full-screen { object-fit: contain; }
 .footer { display: flex; justify-content: space-between; gap: 16px; padding: 26px var(--gutter) 34px; background: var(--surface); color: rgba(243, 246, 251, 0.65); font-size: 14px; border-top: 1px solid rgba(243, 246, 251, 0.1); }
 .footer a { text-decoration: none; }
 .footer a:hover { color: var(--amber); }
-.toast { position: fixed; left: 50%; bottom: 28px; z-index: 70; transform: translate(-50%, 30px); opacity: 0; pointer-events: none; padding: 12px 20px; border-radius: 999px; background: var(--mint); color: var(--on-accent); font-weight: 600; font-size: 15px; transition: opacity 0.3s, transform 0.4s var(--ease); }
-.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1040px) {
@@ -427,6 +426,7 @@ video:-webkit-full-screen { object-fit: contain; }
 }
 @media (max-width: 860px) {
   .nav__links { display: none; }
+  .nav__cta { visibility: visible; }
   .hero { padding-top: 96px; align-items: flex-start; }
   .hero__inner { grid-template-columns: 1fr; }
   .hero__photo { order: -1; justify-content: flex-start; }
@@ -479,8 +479,6 @@ video:-webkit-full-screen { object-fit: contain; }
   .hero__cta { margin-top: 18px; flex-wrap: nowrap; gap: 10px; }
   .hero__cta .btn { padding: 13px 12px; font-size: 14.5px; gap: 7px; }
   .hero__cta .btn svg { width: 15px; height: 15px; }
-  .hero__cta--center { flex-wrap: wrap; }
-  .hero__cta--center .btn:first-child { flex-basis: 100%; }
   .marquee { padding: 13px 0; margin: 4px 0; }
   .marquee span { font-size: 19px; }
 }
