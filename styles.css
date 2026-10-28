@@ -131,6 +131,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @keyframes pop { from { opacity: 0; transform: scale(0.9) rotate(-3deg); } }
 
 /* ---------- Marquee ---------- */
+@media (min-width: 861px) {
+  .hero { min-height: calc(100svh - 104px); padding: clamp(78px, 11vh, 110px) var(--gutter) clamp(16px, 3vh, 40px); }
+  .hero__name { font-size: clamp(50px, min(10.5vw, 11.5vh), 132px); }
+  .hero__lede { font-size: clamp(17px, min(1.7vw, 2.8vh), 22px); }
+  .eyebrow { margin-bottom: 0; }
+  .hero__title { margin-top: 6px; }
+  .pills { margin: clamp(10px, 1.8vh, 18px) 0 clamp(12px, 2vh, 20px); }
+  .hero__rotator { margin-top: 8px; }
+  .hero__cta { margin-top: clamp(16px, 3vh, 30px); }
+  .photo { width: min(400px, 100%, 50vh); }
+}
 .marquee { overflow: hidden; padding: 18px 0; background: var(--surface-2); color: var(--text); border-block: 1px solid var(--line); transform: rotate(-1.2deg) scaleX(1.04); margin: 10px 0; }
 .marquee__track { display: flex; width: max-content; gap: 28px; align-items: center; animation: marquee 40s linear infinite; }
 .marquee span { font-family: var(--display); font-size: 24px; white-space: nowrap; }
