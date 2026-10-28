@@ -130,6 +130,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Sections ---------- */
 .section { position: relative; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding: clamp(80px, 11vw, 130px) var(--gutter); }
+.section[id] { scroll-margin-top: calc(36px - clamp(80px, 11vw, 130px)); }
 .section__head { max-width: 760px; margin-bottom: 52px; }
 .section__head p:not(.kicker) { color: var(--muted); font-size: 18px; margin-top: 16px; }
 .kicker { font-family: var(--mono); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mint); margin-bottom: 14px; }
@@ -478,6 +479,8 @@ video:-webkit-full-screen { object-fit: contain; }
   .hero__cta { margin-top: 18px; flex-wrap: nowrap; gap: 10px; }
   .hero__cta .btn { padding: 13px 12px; font-size: 14.5px; gap: 7px; }
   .hero__cta .btn svg { width: 15px; height: 15px; }
+  .hero__cta--center { flex-wrap: wrap; }
+  .hero__cta--center .btn:first-child { flex-basis: 100%; }
   .marquee { padding: 13px 0; margin: 4px 0; }
   .marquee span { font-size: 19px; }
 }
