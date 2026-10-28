@@ -99,7 +99,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 20px; }
 .pills--center { justify-content: center; }
 .pill { padding: 8px 16px; border-radius: 999px; font-size: 15px; font-weight: 600; border: 1.5px solid var(--text); transition: transform 0.25s var(--ease), background 0.25s, color 0.25s; }
-.pill--solid { background: var(--mint); color: var(--on-accent); }
 .hero__lede { font-size: clamp(18px, 1.7vw, 22px); max-width: 32ch; }
 .hero__lede em { font-family: var(--display); font-size: 1.08em; color: var(--mint); }
 .hero__rotator { margin-top: 12px; color: var(--muted); font-size: 16px; }
@@ -407,7 +406,6 @@ video:-webkit-full-screen { object-fit: contain; }
 .finale__quote { font-family: var(--display); font-weight: 500; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.12; letter-spacing: -0.02em; }
 .finale .kicker { color: var(--amber); }
 .finale .pill { border-color: rgba(243, 246, 251, 0.5); }
-.finale .pill--solid { background: var(--amber); color: var(--on-accent); border-color: var(--amber); }
 .finale__title { font-size: clamp(28px, 3.6vw, 42px); margin: 52px 0 8px; }
 .finale__loc { margin-top: 22px; color: rgba(243, 246, 251, 0.65); font-size: 15px; }
 
