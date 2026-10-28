@@ -479,6 +479,8 @@ video:-webkit-full-screen { object-fit: contain; }
   .hero__cta { margin-top: 18px; flex-wrap: nowrap; gap: 10px; }
   .hero__cta .btn { padding: 13px 12px; font-size: 14.5px; gap: 7px; }
   .hero__cta .btn svg { width: 15px; height: 15px; }
+  .hero__cta--center { flex-wrap: wrap; }
+  .hero__cta--center .btn:first-child { flex-basis: 100%; }
   .marquee { padding: 13px 0; margin: 4px 0; }
   .marquee span { font-size: 19px; }
 }
