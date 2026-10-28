@@ -412,6 +412,12 @@ video:-webkit-full-screen { object-fit: contain; }
 .finale__title { font-size: clamp(28px, 3.6vw, 42px); margin: 0 0 8px; }
 .finale { scroll-margin-top: calc(28px - clamp(90px, 12vw, 150px)); }
 .finale__more { margin-top: 18px; color: rgba(243, 246, 251, 0.75); font-size: 16px; }
+@media (min-width: 1024px) {
+  .finale__inner { max-width: 1180px; display: grid; grid-template-columns: 1fr 1.15fr; gap: 72px; align-items: center; }
+  .finale__fit { padding-left: 72px; border-left: 1px solid rgba(243, 246, 251, 0.14); }
+  .finale__fit .finale__quote { margin-top: 0; font-size: clamp(28px, 2.6vw, 38px); }
+  .finale__fit .kicker--center { margin-top: 30px; }
+}
 .finale__loc { margin-top: 22px; color: rgba(243, 246, 251, 0.65); font-size: 15px; }
 
 .footer { display: flex; justify-content: space-between; gap: 16px; padding: 26px var(--gutter) 34px; background: var(--surface); color: rgba(243, 246, 251, 0.65); font-size: 14px; border-top: 1px solid rgba(243, 246, 251, 0.1); }
