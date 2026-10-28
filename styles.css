@@ -411,6 +411,7 @@ video:-webkit-full-screen { object-fit: contain; }
 .finale .pill { border-color: rgba(243, 246, 251, 0.5); }
 .finale__title { font-size: clamp(28px, 3.6vw, 42px); margin: 0 0 8px; }
 .finale { scroll-margin-top: calc(28px - clamp(90px, 12vw, 150px)); }
+.finale__more { margin-top: 18px; color: rgba(243, 246, 251, 0.75); font-size: 16px; }
 .finale__loc { margin-top: 22px; color: rgba(243, 246, 251, 0.65); font-size: 15px; }
 
 .footer { display: flex; justify-content: space-between; gap: 16px; padding: 26px var(--gutter) 34px; background: var(--surface); color: rgba(243, 246, 251, 0.65); font-size: 14px; border-top: 1px solid rgba(243, 246, 251, 0.1); }
