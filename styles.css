@@ -77,7 +77,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn--light { background: var(--text); color: var(--on-accent); }
 .btn--light:hover { background: var(--amber); color: var(--on-accent); box-shadow: 0 12px 28px -10px rgba(255, 184, 77, 0.6); }
 .btn--ghost-light { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1.5px rgba(243, 246, 251, 0.5); }
-.btn--ghost-light:hover { background: transparent; box-shadow: inset 0 0 0 1.5px var(--bg); }
+.btn--ghost-light:hover { background: transparent; box-shadow: inset 0 0 0 1.5px var(--text); }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 110px var(--gutter) 70px; overflow: hidden; }
@@ -98,7 +98,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 20px; }
 .pills--center { justify-content: center; }
 .pill { padding: 8px 16px; border-radius: 999px; font-size: 15px; font-weight: 600; border: 1.5px solid var(--text); transition: transform 0.25s var(--ease), background 0.25s, color 0.25s; }
-.pill:hover { transform: translateY(-3px) rotate(-2deg); background: var(--amber); color: var(--on-accent); }
 .pill--solid { background: var(--mint); color: var(--on-accent); }
 .hero__lede { font-size: clamp(18px, 1.7vw, 22px); max-width: 32ch; }
 .hero__lede em { font-family: var(--display); font-size: 1.08em; color: var(--mint); }
@@ -171,9 +170,6 @@ video:-webkit-full-screen { object-fit: contain; }
 .step__num { display: block; font-family: var(--display); font-size: 44px; line-height: 1; color: var(--mint); margin-bottom: 16px; transition: color 0.3s; }
 .step h3 { font-size: 24px; margin-bottom: 8px; }
 .step p { color: var(--muted); font-size: 15.5px; line-height: 1.55; transition: color 0.3s; }
-.step:hover { transform: translateY(-8px) rotate(-1deg); background: var(--mint); color: var(--on-accent); }
-.step:hover p { color: rgba(12, 18, 34, 0.78); }
-.step:hover .step__num { color: var(--on-accent); }
 
 /* ---------- Roles ---------- */
 .role { position: relative; padding: clamp(22px, 4vw, 44px); border-radius: 28px; background: var(--surface); box-shadow: var(--shadow); margin-bottom: 28px; }
@@ -374,14 +370,26 @@ video:-webkit-full-screen { object-fit: contain; }
   .skills__big { font-size: 110px; }
 }
 
+/* Static labels: no tap-to-search or text selection, so they never read as links */
+.pill, .card li, .ladder li, .lifecycle li, .pipeline li, .marquee, .badge { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
 /* ---------- Toolkit ---------- */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .card { padding: 28px 26px; border-radius: 22px; background: var(--surface); box-shadow: var(--shadow); transition: transform 0.4s var(--ease); }
-.card:hover { transform: translateY(-6px) rotate(-0.6deg); }
 .card h3 { font-size: 24px; margin-bottom: 16px; }
 .card ul { display: flex; flex-wrap: wrap; gap: 8px; }
 .card li { font-size: 14px; font-weight: 500; padding: 6px 11px; border-radius: 9px; background: var(--bg-2); transition: background 0.2s, color 0.2s; }
-.card li:hover { background: var(--mint); color: var(--on-accent); }
+
+.resume-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; margin-top: 22px; padding: 28px 30px; border-radius: 22px; background: linear-gradient(120deg, var(--surface-2), var(--surface)); box-shadow: var(--shadow), inset 0 0 0 1px rgba(53, 224, 161, 0.25); }
+.resume-cta h3 { font-size: 26px; margin-bottom: 6px; }
+.resume-cta p { color: var(--muted); font-size: 16px; }
+
+/* RVToad video */
+.rvvid { margin: 30px 0 0; max-width: 860px; }
+.rvvid__frame { border-radius: 18px; overflow: hidden; background: #F8F2EA; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7), inset 0 0 0 1px var(--line); aspect-ratio: 16 / 9; }
+.rvvid video { width: 100%; height: 100%; object-fit: contain; background: #F8F2EA; }
+.rvvid figcaption { margin-top: 12px; color: var(--muted); font-size: 15px; max-width: 80ch; }
+.rvvid figcaption strong { color: var(--text); }
 
 /* ---------- Finale ---------- */
 .finale { position: relative; background: var(--surface); color: var(--text); text-align: center; padding: clamp(90px, 12vw, 150px) var(--gutter); overflow: hidden; border-radius: 40px 40px 0 0; }
@@ -466,6 +474,10 @@ video:-webkit-full-screen { object-fit: contain; }
   .hero__cta .btn svg { width: 15px; height: 15px; }
   .marquee { padding: 13px 0; margin: 4px 0; }
   .marquee span { font-size: 19px; }
+}
+@media (max-width: 560px) {
+  .resume-cta { padding: 22px 20px; }
+  .resume-cta .btn { width: 100%; justify-content: center; }
 }
 @media (max-width: 380px) {
   .hero__cta .btn { padding: 12px 9px; font-size: 13.5px; }
