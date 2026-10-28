@@ -214,6 +214,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .js .reveal.is-in { opacity: 1; transform: none; }
 
 /* ---------- Video ---------- */
+/* Light, full-bleed band so the dark video stands out from the page */
+.video { isolation: isolate; color: var(--ink); }
+.video::before {
+  content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; margin-left: -50vw;
+  background:
+    radial-gradient(600px circle at 85% 20%, rgba(53, 224, 161, 0.35), transparent 60%),
+    radial-gradient(500px circle at 10% 90%, rgba(255, 184, 77, 0.28), transparent 60%),
+    #F4F7F2;
+}
+.video .kicker { color: #A65F00; }
+.video .hl { color: #0B8A5C; }
+.video .video__copy p:not(.kicker) { color: #3B4660; }
+.video .ticks li::before { background-color: rgba(11, 138, 92, 0.14); }
+.video .phone { box-shadow: 0 0 0 8px #FFFFFF, 0 0 0 9px rgba(12, 18, 34, 0.08), 0 40px 90px -25px rgba(12, 18, 34, 0.55); }
 .video { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
 .video__copy p:not(.kicker) { color: var(--muted); font-size: 18px; margin-top: 18px; max-width: 44ch; }
 .ticks { margin-top: 24px; display: grid; gap: 12px; }

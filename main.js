@@ -49,7 +49,7 @@
 
   // Typing rotator
   const word = document.querySelector(".rotator__word");
-  const phrases = ["customer insight", "market research", "a clear roadmap", "smart pricing", "AI workflows"];
+  const phrases = ["customer insight", "market research", "customer reviews", "unmet demand", "business needs"];
   if (reduceMotion) {
     word.textContent = phrases[0];
   } else {
