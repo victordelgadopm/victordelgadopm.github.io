@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261028j">
+  <link rel="stylesheet" href="styles.css?v=20261029a">
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div>
@@ -147,7 +147,7 @@
         <li class="step reveal" style="--d:4">
           <span class="step__num">05</span>
           <h3>Grow</h3>
-          <p>Track performance and margin, direct marketing and ad strategy, and plan growth through partnerships and demand forecasting.</p>
+          <p>Track performance and margin, direct marketing and ad strategy, keep inventory ahead of demand with the forecasting team, and plan growth through partnerships.</p>
         </li>
       </ol>
     </section>
@@ -341,6 +341,7 @@
             <li>Supplier negotiation</li>
             <li>Legal, QA &amp; design approval</li>
             <li>Launch</li>
+            <li>Stock &amp; reorder</li>
             <li>Optimize &amp; grow</li>
           </ol>
         </div>
@@ -348,6 +349,7 @@
         <div class="tabs" data-tabs>
           <div class="tabs__list" role="tablist" aria-label="Infinite Commerce responsibilities">
             <button type="button" role="tab" aria-selected="true" aria-controls="t-dev" id="tab-dev">Product Development</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="t-inv" id="tab-inv" tabindex="-1">Demand &amp; Inventory</button>
             <button type="button" role="tab" aria-selected="false" aria-controls="t-ins" id="tab-ins" tabindex="-1">Insights &amp; Pricing</button>
             <button type="button" role="tab" aria-selected="false" aria-controls="t-mkt" id="tab-mkt" tabindex="-1">Marketing &amp; GTM</button>
             <button type="button" role="tab" aria-selected="false" aria-controls="t-lead" id="tab-lead" tabindex="-1">Team Leadership</button>
@@ -362,13 +364,20 @@
               <li>Traveled domestically and internationally to evaluate suppliers, assess manufacturing capability and capacity, and negotiate directly with factory and vendor leadership on pricing, quality and terms</li>
             </ul>
           </div>
+          <div class="tabs__panel" role="tabpanel" id="t-inv" aria-labelledby="tab-inv" hidden>
+            <ul class="list list--grid">
+              <li>Monitored inventory flow across the portfolio, from overseas production through company warehouses to Amazon fulfillment centers, keeping stock in place end to end so listings stayed available</li>
+              <li>Worked with the forecasting and operations teams after launch to get stock to the right places and keep reorders on time, so new products kept selling and became ongoing products</li>
+              <li>Analyzed sales velocity and seasonal patterns to flag reorder needs to the forecasting team early, covering long overseas lead times and preventing stockouts and lost rankings</li>
+              <li>Built an Excel master tracker from Power BI data to monitor products, inventory and key metrics, flag at-risk products and guide decisions on new variants</li>
+            </ul>
+          </div>
+
           <div class="tabs__panel" role="tabpanel" id="t-ins" aria-labelledby="tab-ins" hidden>
             <ul class="list list--grid">
               <li>Ran Voice of the Customer research through competitive analysis and customer review mining to find product gaps, complaints and unmet demand, directly shaping new product development</li>
               <li>Owned product pricing and commercial strategy, weighing competitive position, market conditions, consumer demand and financial goals to balance growth and profitability</li>
               <li>Monitored product-level margin and sales against sourcing targets, adjusting pricing, listings and keywords to revive underperforming items and avoid discontinuation</li>
-              <li>Built an Excel master tracker from Power BI data to monitor products, inventory and key metrics, flag at-risk products and guide decisions on new variants</li>
-              <li>Analyzed sales velocity and seasonal patterns to flag reorder needs to the forecasting team early, covering long overseas lead times and preventing stockouts and lost rankings</li>
             </ul>
           </div>
           <div class="tabs__panel" role="tabpanel" id="t-mkt" aria-labelledby="tab-mkt" hidden>
@@ -513,7 +522,7 @@
         </div>
         <div class="card reveal" style="--d:2">
           <h3>Commercial &amp; Analytics</h3>
-          <ul><li>Pricing &amp; Margin Strategy</li><li>Demand Forecasting</li><li>Ecommerce &amp; Marketplace Analytics</li><li>Product Analytics</li><li>Data-Driven Decision Making</li></ul>
+          <ul><li>Pricing &amp; Margin Strategy</li><li>Demand Forecasting</li><li>Inventory Planning</li><li>Reorder &amp; Lead Time Planning</li><li>Ecommerce &amp; Marketplace Analytics</li><li>Product Analytics</li><li>Data-Driven Decision Making</li></ul>
         </div>
         <div class="card reveal" style="--d:0">
           <h3>Sourcing &amp; Vendors</h3>
@@ -587,6 +596,6 @@
   </footer>
 
   <a href="#top" class="totop" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-  <script src="main.js?v=20261028j"></script>
+  <script src="main.js?v=20261029a"></script>
 </body>
 </html>
