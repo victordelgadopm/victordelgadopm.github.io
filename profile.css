@@ -260,7 +260,7 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
   .side__body > *:nth-child(3) { animation-delay: 0.55s; }
   .side__body > *:nth-child(4) { animation-delay: 0.65s; }
   .side__body > *:nth-child(5) { animation-delay: 0.75s; }
-  .side__body > *:nth-child(6) { animation-delay: 0.85s; }
+  .side__body > *:nth-child(6), .side__body > *:nth-child(7) { animation-delay: 0.85s; }
   @keyframes o1Up { from { opacity: 0; transform: translateY(22px); } }
   .nav { animation: o1Fade 0.8s ease 0.6s both; }
   .strip { animation: o1Fade 0.8s ease 0.8s both; }
@@ -288,3 +288,10 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
 }
 .steps .step:last-child { grid-column: auto; }
 @media (max-width: 1023px) { .step { align-content: start; } .step__num { grid-row: span 2; } }
+
+/* Panel buttons: on desktop the video and work are already on screen, so offer contact instead */
+.side__cta--desk { display: none; }
+@media (min-width: 1024px) {
+  .side__cta:not(.side__cta--desk) { display: none; }
+  .side__cta--desk { display: flex; }
+}
