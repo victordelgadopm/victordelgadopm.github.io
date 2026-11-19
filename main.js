@@ -51,23 +51,37 @@
   }), { rootMargin: "-45% 0px -50% 0px" });
   $$("section[id]").forEach((s) => sectionIO.observe(s));
 
-  // Typing rotator
-  const word = $(".rotator__word");
-  const phrases = ["sales trends into forecasts teams can plan around.", "forecasts into stock in the right place at the right time.", "customer insight into products customers want.", "market research into go-to-market plans.", "big ideas into clear roadmaps.", "repetitive work into AI agent workflows."];
-  if (!reduceMotion) {
-    let i = 0, ch = phrases[0].length, deleting = false;
-    const tick = () => {
-      if (!deleting) {
-        ch++;
-        if (ch > phrases[i].length) { deleting = true; return setTimeout(tick, 2400); }
-      } else {
-        ch--;
-        if (ch === 0) { deleting = false; i = (i + 1) % phrases.length; }
-      }
-      word.textContent = phrases[i].slice(0, ch);
-      setTimeout(tick, deleting ? 18 : 45);
+  // Rotating line: each word rises out of a soft blur, one after another
+  const rot = $(".hero__rotator");
+  const lines = [
+    ["sales trends", "forecasts teams can plan around."],
+    ["forecasts", "stock in the right place at the right time."],
+    ["customer insight", "products customers want."],
+    ["market research", "go-to-market plans."],
+    ["big ideas", "clear roadmaps."],
+    ["repetitive work", "AI agent workflows."]
+  ];
+  if (rot) {
+    let li = 0;
+    const esc = (t) => t.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+    const render = (i) => {
+      const [x, y] = lines[i];
+      const words = [["I", 0], ["turn", 0], ...x.split(" ").map((w) => [w, 1]), ["into", 0], ...y.split(" ").map((w) => [w, 1])];
+      rot.classList.remove("is-on", "is-off");
+      rot.innerHTML = words.map(([w, g], k) => `<span class="bw" style="transition-delay:${k * 55}ms">${g ? "<b>" + esc(w) + "</b>" : esc(w)}</span>`).join(" ");
+      return words.length;
     };
-    setTimeout(() => { deleting = true; tick(); }, 2600);
+    if (reduceMotion) { render(0); rot.classList.add("is-on"); }
+    else {
+      const cycle = () => {
+        const n = render(li);
+        requestAnimationFrame(() => requestAnimationFrame(() => rot.classList.add("is-on")));
+        const hold = 2800 + n * 55;
+        setTimeout(() => { rot.querySelectorAll(".bw").forEach((el, k) => (el.style.transitionDelay = k * 25 + "ms")); rot.classList.add("is-off"); }, hold);
+        setTimeout(() => { li = (li + 1) % lines.length; cycle(); }, hold + 650);
+      };
+      setTimeout(cycle, 900);
+    }
   }
 
   // Video

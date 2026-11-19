@@ -298,3 +298,14 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
 
 /* Rotating line: whole phrase types in; reserve two lines so nothing below jumps */
 .side .hero__rotator { min-height: calc(2 * 1.5em); line-height: 1.5; }
+
+/* Rotating line, blur rise. Words are visible by default (no JS, reduced motion);
+   the animation only runs once JS takes over and adds .is-on / .is-off. */
+.side .hero__rotator { font-size: 16px; color: rgba(244, 246, 251, 0.74); }
+.side .hero__rotator b { color: var(--gold); font-weight: 600; }
+.hero__rotator .bw { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero__rotator .bw { opacity: 0; filter: blur(8px); transform: translateY(10px); transition: opacity .5s ease, filter .5s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+  .js .hero__rotator.is-on .bw { opacity: 1; filter: blur(0); transform: none; }
+  .js .hero__rotator.is-off .bw { opacity: 0; filter: blur(6px); transform: translateY(-8px); transition-duration: .35s; }
+}
