@@ -190,3 +190,9 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
 .role__body { grid-template-columns: 1fr; }
 .role__body .viz { max-width: 560px; }
 @media (max-width: 1023px) { .nav:not(.is-scrolled) .nav__menu { background: rgba(16, 32, 63, 0.55); backdrop-filter: blur(6px); } }
+/* Clean photo: no shading, text sits below it */
+.side__photo::after { display: none; }
+.side__body { margin-top: 0; padding-top: 28px; }
+.blk__label { font-size: 13px; color: var(--mint); font-weight: 500; }
+.finale .blk__label { color: var(--gold); }
+@media (max-width: 1023px) { .side__photo { height: 56vh; } .side__body { margin-top: 0; padding-top: 24px; } }

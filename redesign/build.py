@@ -96,7 +96,7 @@ o1=head('1',True)+f'''
   <main id="top" class="main">
     <div class="strip" aria-hidden="true"><div class="marquee__track">{marquee_items}</div></div>
     <section id="video" class="section blk blk--video">
-      <div class="blk__label"><span>01</span>Video resume</div>
+      <div class="blk__label">Video resume</div>
       <div class="blk__body vid">
         <div class="vid__copy"><h2>My career in <em>45 seconds</em>.</h2>
           <p>Short on time? Hit play for the highlights: consumer goods on Amazon, Target and Walmart, AI agent workflows for small businesses, and the product thinking that ties it all together.</p>
@@ -105,23 +105,23 @@ o1=head('1',True)+f'''
       </div>
     </section>
     <section id="experience" class="section blk">
-      <div class="blk__label"><span>02</span>Experience</div>
+      <div class="blk__label">Experience</div>
       <div class="blk__body"><h2 class="blk__h">Where I've made <em>an impact</em>.</h2>
       {ALLROLES}</div>
     </section>
     <section id="approach" class="section blk">
-      <div class="blk__label"><span>03</span>How I work</div>
+      <div class="blk__label">How I work</div>
       <div class="blk__body"><h2 class="blk__h">One playbook, from <em>first insight</em> to growth.</h2>
         <p class="blk__lede">{approach_lede}</p>
         {steps}</div>
     </section>
     <section id="toolkit" class="section blk">
-      <div class="blk__label"><span>04</span>Skills &amp; Tools</div>
+      <div class="blk__label">Skills &amp; Tools</div>
       <div class="blk__body"><h2 class="blk__h">What I bring <em>to the table</em>.</h2>
         {cards}</div>
     </section>
     <section id="contact" class="section blk finale">
-      <div class="blk__label"><span>05</span>Let's connect</div>
+      <div class="blk__label">Let's connect</div>
       <div class="blk__body fin">
         <p class="fin__quote">{QUOTE}</p>
         <div class="fin__card">
