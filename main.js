@@ -53,19 +53,19 @@
 
   // Typing rotator
   const word = $(".rotator__word");
-  const phrases = ["customer insight", "market research", "customer reviews", "unmet demand", "business needs"];
+  const phrases = ["sales trends into forecasts teams can plan around.", "forecasts into stock in the right place at the right time.", "customer insight into products customers want.", "market research into go-to-market plans.", "big ideas into clear roadmaps.", "repetitive work into AI agent workflows."];
   if (!reduceMotion) {
     let i = 0, ch = phrases[0].length, deleting = false;
     const tick = () => {
       if (!deleting) {
         ch++;
-        if (ch > phrases[i].length) { deleting = true; return setTimeout(tick, 1800); }
+        if (ch > phrases[i].length) { deleting = true; return setTimeout(tick, 2400); }
       } else {
         ch--;
         if (ch === 0) { deleting = false; i = (i + 1) % phrases.length; }
       }
       word.textContent = phrases[i].slice(0, ch);
-      setTimeout(tick, deleting ? 35 : 70);
+      setTimeout(tick, deleting ? 18 : 45);
     };
     setTimeout(() => { deleting = true; tick(); }, 2600);
   }
