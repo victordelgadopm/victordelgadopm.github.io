@@ -266,8 +266,8 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
   .strip { animation: o1Fade 0.8s ease 0.8s both; }
   @keyframes o1Fade { from { opacity: 0; } }
   /* Section headings wipe in */
-  .js .blk__h, .js .vid h2, .js .fin__quote { clip-path: inset(0 0 100% 0); transform: translateY(16px); transition: clip-path 0.9s var(--ease), transform 0.9s var(--ease); }
-  .js .blk__h.is-in, .js .vid h2.is-in, .js .fin__quote.is-in { clip-path: inset(0 0 0 0); transform: none; }
+  .js .blk__h, .js .vid h2, .js .fin__quote { clip-path: inset(-0.4em -0.4em 100% -0.4em); transform: translateY(16px); transition: clip-path 0.9s var(--ease), transform 0.9s var(--ease); }
+  .js .blk__h.is-in, .js .vid h2.is-in, .js .fin__quote.is-in { clip-path: inset(-0.4em -0.4em -0.4em -0.4em); transform: none; }
   /* How I work rows slide in one after another */
   .js .step { opacity: 0; transform: translateX(-24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
   .js .step.is-in { opacity: 1; transform: none; }
