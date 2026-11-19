@@ -295,3 +295,6 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
   .side__cta:not(.side__cta--desk) { display: none; }
   .side__cta--desk { display: flex; }
 }
+
+/* Rotating line: whole phrase types in; reserve two lines so nothing below jumps */
+.side .hero__rotator { min-height: calc(2 * 1.5em); line-height: 1.5; }
