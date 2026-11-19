@@ -78,6 +78,7 @@ ALLROLES=''.join(roles[k] for k in ['demand','rvtoad','kolo','kolo-skills','infi
 o1=head('1',True)+f'''
 <body class="o1">
   <div class="progress" aria-hidden="true"></div>
+  <div class="side__track" aria-hidden="true"><span></span></div>
   {nav()}
   <aside class="side hero">
     <div class="side__photo tilt"><img src="assets/headshot.jpg" alt="Portrait of Victor Delgado" width="1000" height="1000"></div>
@@ -137,7 +138,7 @@ o1=head('1',True)+f'''
     </section>
     {FOOT}
   </main>
-  {TAIL}
+  {TAIL}  <script src="o1.js"></script>
 </body></html>'''
 
 # ---------------- OPTION 2: bento ----------------

@@ -196,3 +196,65 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
 .blk__label { font-size: 13px; color: var(--mint); font-weight: 500; }
 .finale .blk__label { color: var(--gold); }
 @media (max-width: 1023px) { .side__photo { height: 56vh; } .side__body { margin-top: 0; padding-top: 24px; } }
+
+/* ===== Round 3: alignment pass ===== */
+/* One column: label sits above the heading, everything shares one left edge with the nav */
+.section.blk { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.blk__label { position: static; display: block; font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); }
+.blk__body { max-width: 1000px; }
+@media (min-width: 1024px) { .nav > .nav__logo { display: none; } .nav { padding-left: clamp(28px, 4vw, 64px); } }
+/* Career ladder: four equal steps in one row instead of wrapping arrows */
+.ladder { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; align-items: stretch; }
+.ladder li.ladder__arrow { display: none; }
+.ladder li { display: flex; align-items: center; line-height: 1.3; position: relative; }
+.ladder li:not(.ladder__top):not(.ladder__arrow)::after { content: "→"; position: absolute; right: -8px; top: 50%; transform: translate(50%, -50%); color: var(--coral); font-weight: 700; font-size: 12px; z-index: 1; }
+/* Tabs stay on one line and scroll sideways if needed */
+.tabs__list:not(.skills__list) { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.tabs__list:not(.skills__list)::-webkit-scrollbar { display: none; }
+.tabs__list:not(.skills__list) button { white-space: nowrap; flex: none; }
+.role__body .viz { max-width: 480px; }
+@media (min-width: 1024px) { .vid { grid-template-columns: minmax(0, 1fr) minmax(240px, 320px); } }
+@media (max-width: 1023px) {
+  .ladder { grid-template-columns: 1fr; gap: 6px; }
+  .ladder li:not(.ladder__top):not(.ladder__arrow)::after { content: "↓"; right: auto; left: 18px; top: auto; bottom: -6px; transform: translateY(50%); }
+  .role__body .viz { max-width: 100%; }
+}
+
+/* ===== Animations (all off for reduced motion) ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .side__photo img { animation: o1Photo 1.4s var(--ease) both; will-change: transform; }
+  @keyframes o1Photo { from { opacity: 0; transform: scale(1.12); } }
+  .side__body > * { animation: o1Up 0.9s var(--ease) both; }
+  .side__body > *:nth-child(1) { animation-delay: 0.35s; }
+  .side__body > *:nth-child(2) { animation-delay: 0.45s; }
+  .side__body > *:nth-child(3) { animation-delay: 0.55s; }
+  .side__body > *:nth-child(4) { animation-delay: 0.65s; }
+  .side__body > *:nth-child(5) { animation-delay: 0.75s; }
+  .side__body > *:nth-child(6) { animation-delay: 0.85s; }
+  @keyframes o1Up { from { opacity: 0; transform: translateY(22px); } }
+  .nav { animation: o1Fade 0.8s ease 0.6s both; }
+  .strip { animation: o1Fade 0.8s ease 0.8s both; }
+  @keyframes o1Fade { from { opacity: 0; } }
+  /* Section headings wipe in */
+  .js .blk__h, .js .vid h2, .js .fin__quote { clip-path: inset(0 0 100% 0); transform: translateY(16px); transition: clip-path 0.9s var(--ease), transform 0.9s var(--ease); }
+  .js .blk__h.is-in, .js .vid h2.is-in, .js .fin__quote.is-in { clip-path: inset(0 0 0 0); transform: none; }
+  /* How I work rows slide in one after another */
+  .js .step { opacity: 0; transform: translateX(-24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+  .js .step.is-in { opacity: 1; transform: none; }
+  /* Duties and skill groups cascade */
+  .js .duty { opacity: 0; transform: translateY(14px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+  .js .duty.is-in { opacity: 1; transform: none; }
+}
+/* Panel scroll line: a gold bar on the panel edge fills as you read */
+.side__track { position: fixed; top: 0; bottom: 0; left: calc(var(--sw) - 4px); width: 4px; background: rgba(255, 255, 255, 0.08); z-index: 41; pointer-events: none; }
+.side__track span { position: absolute; inset: 0; background: var(--gold); transform-origin: top; transform: scaleY(var(--p, 0)); }
+@media (max-width: 1023px) { .side__track { display: none; } }
+
+.fin .pills, .fin .pills--center { justify-content: flex-start; }
+
+@media (max-width: 1023px) {
+  .card:nth-child(odd), .card:nth-child(even) { border-right: 0; padding: 22px 0; }
+  .ladder li:not(.ladder__top):not(.ladder__arrow)::after { display: none; }
+}
+.steps .step:last-child { grid-column: auto; }
+@media (max-width: 1023px) { .step { align-content: start; } .step__num { grid-row: span 2; } }
