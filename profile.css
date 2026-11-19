@@ -309,3 +309,22 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
   .js .hero__rotator.is-on .bw { opacity: 1; filter: blur(0); transform: none; }
   .js .hero__rotator.is-off .bw { opacity: 0; filter: blur(6px); transform: translateY(-8px); transition-duration: .35s; }
 }
+
+/* Home hero: profile panel on the left, video on the right, both scroll away together.
+   Everything below runs full width. */
+.side__track { display: none; }
+.top__video { padding: 52px 20px; border-bottom: 1px solid var(--line); }
+@media (min-width: 1024px) {
+  .top { display: grid; grid-template-columns: var(--sw) minmax(0, 1fr); min-height: 100vh; }
+  .top .side.hero { position: relative; inset: auto; width: auto; overflow: visible; z-index: 1; }
+  .top__video { display: flex; align-items: center; padding: 120px clamp(28px, 4vw, 64px) 72px; border-bottom: 0; }
+  .top__video .vid { width: 100%; max-width: 1040px; margin-inline: 0; }
+  .main { margin-left: 0; }
+  .progress { left: 0; }
+  .nav { transition: left .45s cubic-bezier(.2,.8,.2,1), background .3s ease; }
+  .nav.is-past { left: 0; }
+  .nav.is-past .nav__links { width: 100%; max-width: 1180px; margin-inline: auto; }
+  .strip { margin-top: 0; }
+  .section.blk { padding-inline: clamp(28px, 4vw, 64px); }
+  .blk__body, .blk__label { width: 100%; max-width: 1180px; margin-inline: auto; }
+}
