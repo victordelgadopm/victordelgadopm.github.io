@@ -578,3 +578,9 @@ video:-webkit-full-screen { object-fit: contain; }
 .duty p { color: var(--muted); font-size: 15.5px; line-height: 1.5; }
 @media (max-width: 1100px) { .duties { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .duties { grid-template-columns: 1fr; gap: 10px; } .duty { padding: 16px 16px 16px 44px; } .duty::before { left: 18px; top: 23px; } .duty h4 { font-size: 18px; } }
+/* VD circle sits in the centered nav group on desktop; phones keep it at the left */
+.nav__links a.nav__logo--inline { color: var(--on-accent); font-size: 17px; width: 40px; height: 40px; margin-right: -6px; }
+.nav__links a.nav__logo--inline::after { display: none; }
+.nav__links a.nav__logo--inline:hover { color: var(--on-accent); }
+@media (min-width: 861px) { .nav > .nav__logo { visibility: hidden; } }
+@media (max-width: 860px) { .nav__links a.nav__logo--inline { display: none !important; } }
