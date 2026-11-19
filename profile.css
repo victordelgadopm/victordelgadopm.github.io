@@ -328,3 +328,98 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
   .section.blk { padding-inline: clamp(28px, 4vw, 64px); }
   .blk__body, .blk__label { width: 100%; max-width: 1180px; margin-inline: auto; }
 }
+
+/* ===== Skills & Tools: capability tiles ===== */
+.caps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.cap { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 28px 28px 26px; border-radius: 18px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); min-width: 0; overflow: hidden; }
+.cap__icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(35, 71, 200, 0.08); color: var(--mint); margin-bottom: 6px; }
+.cap__icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cap__title { font-family: var(--display); font-weight: 800; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em; margin: 0; color: var(--text); }
+.cap__line { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 46ch; }
+.cap__list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 0; }
+.cap__list li { position: relative; padding: 10px 0 10px 26px; border-top: 1px solid var(--line); font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.35; }
+.cap__list li::before { content: ""; position: absolute; left: 2px; top: 50%; width: 12px; height: 7px; border-left: 2px solid var(--mint); border-bottom: 2px solid var(--mint); transform: translateY(-70%) rotate(-45deg); }
+/* Lead tile: navy, two-column list */
+.cap--lead { grid-column: span 2; background: var(--navy); box-shadow: none; }
+.cap--lead .cap__title { color: #fff; font-size: 26px; }
+.cap--lead .cap__line { color: rgba(244, 246, 251, 0.78); font-size: 17px; }
+.cap--lead .cap__icon { background: rgba(240, 181, 74, 0.16); color: var(--gold); }
+.cap--lead .cap__list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+.cap--lead .cap__list li { color: #F4F6FB; border-top-color: rgba(255, 255, 255, 0.12); }
+.cap--lead .cap__list li::before { border-color: var(--gold); }
+.cap--lead::after { content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; border: 1px solid rgba(240, 181, 74, 0.18); box-shadow: 0 0 0 40px rgba(240, 181, 74, 0.04), 0 0 0 80px rgba(240, 181, 74, 0.03); pointer-events: none; }
+/* Demand tile: warm gold tint */
+.cap--demand { background: #FBF1DC; box-shadow: inset 0 0 0 1px rgba(201, 131, 26, 0.22); }
+.cap--demand .cap__icon { background: rgba(201, 131, 26, 0.16); color: var(--amber); }
+.cap--demand .cap__list li { border-top-color: rgba(201, 131, 26, 0.2); }
+.cap--demand .cap__list li::before { border-color: var(--amber); }
+/* Tools strip */
+.toolbelt { grid-column: 1 / -1; display: flex; align-items: center; gap: 22px 32px; flex-wrap: wrap; padding: 22px 28px; border-radius: 18px; background: var(--bg-2); }
+.toolbelt__title { margin: 0; font-family: var(--mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.toolbelt__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 0; flex: 1; min-width: 0; }
+.toolbelt__list li { font-weight: 600; font-size: 15px; color: var(--text); white-space: nowrap; }
+.toolbelt__list li + li::before { content: "·"; margin: 0 12px; color: var(--amber); font-weight: 700; }
+@media (max-width: 1023px) {
+  .caps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cap--lead { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .caps { grid-template-columns: 1fr; gap: 12px; }
+  .cap { padding: 22px 20px; }
+  .cap--lead .cap__list { grid-template-columns: 1fr; }
+  .cap--lead::after { display: none; }
+  .toolbelt { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
+}
+
+/* ===== Wider diagrams now that sections use the full width ===== */
+@media (min-width: 1100px) {
+  /* RVToad: text and marketplace diagram side by side, video with its caption beside it */
+  #role-rvtoad .role__body { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; }
+  #role-rvtoad .role__body .viz { max-width: none; }
+  .rvvid { max-width: none; display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+  .rvvid figcaption { margin: 0; font-size: 16px; }
+  /* Kolo: the diagram spans the section, orbit on the left, lifecycle on the right */
+  #role-kolo .role__body .viz { max-width: none; }
+  .viz--agents { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 56px; row-gap: 18px; align-items: center; padding: 44px 48px; }
+  .viz--agents .orbit { grid-row: 1 / span 2; width: min(100%, 470px); }
+  .viz--agents .lifecycle { align-self: end; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; gap: 10px; margin: 0; position: relative; padding-left: 26px; }
+  .viz--agents .lifecycle::before { content: ""; position: absolute; left: 8px; top: 18px; bottom: 18px; width: 2px; background: var(--line); }
+  .viz--agents .lifecycle li { position: relative; font-size: 16px; padding: 14px 18px; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--line); }
+  .viz--agents .lifecycle li::before { content: ""; position: absolute; left: -24px; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); box-shadow: inset 0 0 0 2px var(--line-strong, rgba(17,26,44,.25)); transform: translateY(-50%); }
+  .viz--agents .lifecycle li.is-on, .viz--agents .lifecycle li.is-done { box-shadow: none; }
+  .viz--agents .lifecycle li.is-on { transform: translateX(6px); }
+  .viz--agents .lifecycle li.is-on::before, .viz--agents .lifecycle li.is-done::before { background: var(--mint); box-shadow: none; }
+  .viz--agents .viz__tip { align-self: start; text-align: left; margin: 4px 0 0; font-size: 15px; }
+}
+
+/* Lead skills tile: list sits at the bottom so the tile reads as one composed block */
+.cap--lead .cap__title { font-size: clamp(26px, 2.4vw, 32px); }
+.cap--lead .cap__line { font-size: 18px; max-width: 40ch; }
+.cap--lead .cap__list { margin-top: auto; padding-top: 22px; }
+
+/* Let's connect: two columns on desktop so the section uses its width */
+.fin__a, .fin__b { display: flex; flex-direction: column; gap: 26px; min-width: 0; }
+.fin__b { gap: 16px; }
+.fin__b .kicker { margin: 0; }
+.fin__b .pills { justify-content: flex-start; margin: 0; }
+@media (min-width: 1100px) {
+  .finale .fin { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+  .fin__b { padding: 32px; border-radius: 20px; background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12); }
+}
+@media (max-width: 1099px) { .fin__b { margin-top: 36px; } }
+
+/* Tools strip, grouped */
+.toolbelt { display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: start; gap: 20px 32px; padding: 26px 28px; }
+.toolbelt__title { padding-top: 2px; }
+.toolbelt__groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 28px; }
+.toolbelt__group { min-width: 0; }
+.toolbelt__label { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.toolbelt__list { display: flex; flex-wrap: wrap; gap: 6px; }
+.toolbelt__list li { white-space: normal; font-size: 14px; font-weight: 600; padding: 6px 10px; border-radius: 8px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.toolbelt__list li + li::before { content: none; }
+@media (max-width: 1023px) { .toolbelt { grid-template-columns: 1fr; } .toolbelt__groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .toolbelt { display: grid; } .toolbelt__groups { grid-template-columns: 1fr; } }
+
+/* Lifecycle: finished steps stay readable */
+.lifecycle li.is-done { background: #E7ECFA; color: #1D3AA8; }
+.lifecycle li.is-on { background: var(--mint); color: #fff; }
