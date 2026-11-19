@@ -9,7 +9,6 @@
     const max = document.documentElement.scrollHeight - innerHeight;
     const p = max > 0 ? scrollY / max : 0;
     if (track) track.style.setProperty("--p", p.toFixed(4));
-    if (img && !reduce && desk.matches) img.style.transform = `scale(1.06) translateY(${(-p * 36).toFixed(1)}px)`;
   };
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   addEventListener("resize", update);
