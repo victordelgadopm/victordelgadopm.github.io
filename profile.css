@@ -516,3 +516,11 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
   .nav.is-past .nav__links { width: auto; max-width: none; margin-inline: 0; }
 }
 .fin__sub { margin: 4px 0 0; color: rgba(244, 246, 251, 0.86); font-size: 16px; line-height: 1.45; }
+
+/* Wide screens: keep the intro text and video together as one centered group,
+   so extra width splits evenly on both sides instead of opening a gap on the left. */
+@media (min-width: 1280px) {
+  .top__video { justify-content: center; }
+  .top__video .vid { width: auto; margin-inline: auto; grid-template-columns: minmax(260px, 520px) auto; }
+  .top .vid__copy { justify-self: start; }
+}
