@@ -510,3 +510,9 @@ h2 em, .blk__h em { font-style: normal; color: var(--mint); }
 @media (min-width: 1100px) { .viz--agents { padding: 28px 44px; } }
 .stack__group h4 { white-space: nowrap; }
 .cap--lead::after { top: -150px; right: -110px; }
+/* Menu stays centered: over the video column on the first screen, over the page after */
+@media (min-width: 861px) {
+  .nav { justify-content: center; }
+  .nav.is-past .nav__links { width: auto; max-width: none; margin-inline: 0; }
+}
+.fin__sub { margin: 4px 0 0; color: rgba(244, 246, 251, 0.86); font-size: 16px; line-height: 1.45; }
